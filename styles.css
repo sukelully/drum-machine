@@ -6,34 +6,55 @@
     box-sizing: border-box;
 }
 
+:root {
+    --casing-bg: #D5D1BE;
+    --btn-red: #DC9265;
+    --display-bg: #9EAAA0;
+    --button-col: #575552;
+    --border-rad: 10px;
+}
+
+@font-face {
+    font-family: 'calcFont';
+    src: url('./src/font/digital-7.ttf') format('truetype'),
+}
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: black;
 }
 
 #drum-machine {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
     width: 800px;
     height: 800px;
     padding: calc(1% + 1em);
     gap: calc(1% + 1em);
+    background-color: var(--casing-bg);
+    border-radius: var(--border-rad);
 }
 
 #display {
-    border: 1px solid black;
+    display: flex; /* Ensure it's a flex container */
+    justify-content: center; /* Horizontally align the text */
+    align-items: center; /* Vertically align the text */
     height: 20%;
+    font-family: 'calcFont', sans-serif;
+    text-align: right;
+    font-size: 8rem;
+    background-color: var(--display-bg);
+    border-radius: var(--border-rad);
 }
 
 #pad-bank {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    border: 1px solid black;
+    justify-content: space-between;
+    align-content: space-between;
     height: 100%;
 }
 
@@ -41,7 +62,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
     height: 32%;
     width: 32%;
+    background-color: var(--button-col);
+    color: var(--button-col);
+    border-radius: var(--border-rad);
 }
