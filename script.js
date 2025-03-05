@@ -1,12 +1,21 @@
 const display = document.getElementById('display');
+let currentAudio = null; // Track the currently playing audio element
 
+// Hit drum, play sound
 const playDrumPad = item => {
-    if (!item.isPlaying) {    // Play audio node
-        item.pad.children[0].play();
-        // console.log(item.char);
-        display.innerText = item.id;
-    } else {}
-}
+    const audioChild = item.pad.children[0];
+
+    // If there's an audio currently playing, stop it
+    if (currentAudio && !currentAudio.paused) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0; // Reset the audio to the start
+    }
+
+    // Play the new sound
+    audioChild.play();
+    currentAudio = audioChild; // Set the new sound as the current audio
+    display.innerText = item.id;
+};
 
 // Create array of .drum-pad objects and store play state
 const drumArr = Array.from(document.getElementsByClassName('drum-pad')).map((drumPad) => ({
