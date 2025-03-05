@@ -8,12 +8,12 @@ const playDrumPad = item => {
     // If there's an audio currently playing, stop it
     if (currentAudio && !currentAudio.paused) {
         currentAudio.pause();
-        currentAudio.currentTime = 0; // Reset the audio to the start
+        currentAudio.currentTime = 0;
     }
 
     // Play the new sound
     audioChild.play();
-    currentAudio = audioChild; // Set the new sound as the current audio
+    currentAudio = audioChild;
     display.innerText = item.id;
 };
 
@@ -32,8 +32,8 @@ drumArr.forEach((item) => {
 // Play drum pad if correct keycode
 document.addEventListener("keypress", event => {
     const charString = String.fromCharCode(event.keyCode).toLowerCase();
-
     const keyPress = drumArr.find((item) => item.char === charString);
+
     if (keyPress) playDrumPad(keyPress)
     else return;
 });
