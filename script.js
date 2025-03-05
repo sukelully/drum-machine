@@ -1,29 +1,26 @@
-const kick = document.getElementById('kick');
+const display = document.getElementById('display');
 
-const playAudioChild = element => {
-    element.children[0].play();
+const playDrumPad = pad => {
+    pad.children[0].play();
+    console.log(pad.id);
+    display.innerText = pad.id;
 }
 
-// playAudioChild(kick);
+// Create array of .drum-pad objects and store play state
+const drumArr = Array.from(document.getElementsByClassName('drum-pad')).map((drumPad) => ({
+    pad: drumPad,
+    playing: false,
+    id: drumPad.getAttribute('id')
+}));
 
-const drumArr = Array.from(document.getElementsByClassName('drum-pad'));
-
-drumArr.forEach((item, index) => {
-    // setTimeout(() => {
-    //     playAudioChild(item);
-    //     console.log(item);
-    // }, index * 500); // Increase delay based on index
-    item.addEventListener("click", () => playAudioChild(item));
+drumArr.forEach((item) => {
+    item.pad.addEventListener("click", () => playDrumPad(item.pad));
 });
 
 document.addEventListener("keypress", event => {
-    console.log(event.keyCode)
+    console.log(event.keyCode);
     switch (event.keyCode) {
         case 113:
-            playAudioChild(kick);
+            // console.log()
     }
 });
-
-const clickDrumPad = () => {
-    
-}
