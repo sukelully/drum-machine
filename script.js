@@ -3,9 +3,7 @@ const display = document.getElementById('display');
 const playDrumPad = item => {
     if (!item.isPlaying) {    // Play audio node
         item.pad.children[0].play();
-        console.log(item.id);
         // console.log(item.char);
-        console.log(toChar(item.char));
         display.innerText = item.id;
     } else {}
 }
@@ -20,7 +18,7 @@ const drumArr = Array.from(document.getElementsByClassName('drum-pad')).map((dru
     pad: drumPad,
     isPlaying: false,
     id: drumPad.getAttribute('id'),
-    char: drumPad.textContent.trim()
+    char: drumPad.textContent.trim().toLowerCase()
 }));
 
 drumArr.forEach((item) => {
@@ -28,9 +26,8 @@ drumArr.forEach((item) => {
 });
 
 document.addEventListener("keypress", event => {
-    console.log(event.keyCode);
-    switch (event.keyCode) {
-        case 113:
-            // console.log()
-    }
+    const charString = String.fromCharCode(event.keyCode).toLowerCase();
+    const keyPress = drumArr.find((item) => item.char === charString);
+    if (keyPress) playDrumPad(keyPress)
+    else return;
 });
