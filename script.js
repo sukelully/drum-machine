@@ -29,11 +29,12 @@ drumArr.forEach((item) => {
     item.pad.addEventListener("click", () => playDrumPad(item));
 });
 
-// Play drum pad if correct keycode
-document.addEventListener("keypress", event => {
-    const charString = String.fromCharCode(event.keyCode).toLowerCase();
+// Play drum pad if correct key is pressed
+document.addEventListener("keydown", event => {
+    const charString = event.key.toLowerCase(); // Use event.key instead of event.keyCode
     const keyPress = drumArr.find((item) => item.char === charString);
 
-    if (keyPress) playDrumPad(keyPress)
-    else return;
+    if (keyPress) {
+        playDrumPad(keyPress);
+    }
 });
