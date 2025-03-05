@@ -20,7 +20,6 @@ const playDrumPad = item => {
 // Create array of .drum-pad objects and store play state
 const drumArr = Array.from(document.getElementsByClassName('drum-pad')).map((drumPad) => ({
     pad: drumPad,
-    isPlaying: false,
     id: drumPad.getAttribute('id'),
     char: drumPad.textContent.trim().toLowerCase()
 }));
