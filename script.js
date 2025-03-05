@@ -4,7 +4,16 @@ const playAudioChild = element => {
     element.children[0].play();
 }
 
-playAudioChild(kick);
+// playAudioChild(kick);
+
+const drumArr = Array.from(document.getElementsByClassName('drum-pad'));
+
+drumArr.forEach((item, index) => {
+    setTimeout(() => {
+        playAudioChild(item);
+        console.log(item);
+    }, index * 500); // Increase delay based on index
+});
 
 document.addEventListener("keypress", event => {
     console.log(event.keyCode)
@@ -13,3 +22,7 @@ document.addEventListener("keypress", event => {
             playAudioChild(kick);
     }
 });
+
+const clickDrumPad = () => {
+
+}
