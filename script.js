@@ -1,32 +1,29 @@
 const display = document.getElementById('display');
-let currentAudio = null; // Track the currently playing audio element
+let currentAudio = null;
 
 // Hit drum, play sound
 const playDrumPad = item => {
     const audioChild = item.pad.children[0];
 
-    // If there's an audio currently playing, stop it
+    // If there's audio currently playing, stop it
     if (currentAudio && !currentAudio.paused) {
         currentAudio.pause();
         currentAudio.currentTime = 0;
     }
 
-    // Play the new sound
+    // Play sound and update display
     audioChild.play();
     currentAudio = audioChild;
     display.textContent = item.id;
 
-
-    // Add active class to darken the pad
+    // Darken pad colour with short animation
     item.pad.classList.add("active");
-
-    // Remove the class after a short delay
     setTimeout(() => {
         item.pad.classList.remove("active");
     }, 100);
 };
 
-// Create array of .drum-pad objects and store play state
+// Create array of .drum-pad objects and store id and keycode characters
 const drumArr = Array.from(document.getElementsByClassName('drum-pad')).map((drumPad) => ({
     pad: drumPad,
     id: drumPad.getAttribute('id'),
@@ -39,7 +36,7 @@ drumArr.forEach((item) => {
 
 // Play drum pad if correct key is pressed
 document.addEventListener("keydown", event => {
-    const charString = event.key.toLowerCase(); // Use event.key instead of event.keyCode
+    const charString = event.key.toLowerCase();
     const keyPress = drumArr.find((item) => item.char === charString);
 
     if (keyPress) {
