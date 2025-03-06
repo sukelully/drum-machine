@@ -9,7 +9,7 @@ const drumArr = Array.from(document.getElementsByClassName('drum-pad')).map((dru
 }));
 
 // Hit drum, play sound
-const playDrumPad = item => {
+const playDrumPad = drumPad => {
     // If there's audio currently playing, stop it
     if (currentAudio && !currentAudio.paused) {
         currentAudio.pause();
@@ -17,15 +17,15 @@ const playDrumPad = item => {
     }
 
     // Play sound and update display
-    const audioChild = item.pad.children[0];
+    const audioChild = drumPad.pad.children[0];
     audioChild.play();
     currentAudio = audioChild;
-    display.textContent = item.id;
+    display.textContent = drumPad.id;
 
     // Darken pad colour with short animation
-    item.pad.classList.add("active");
+    drumPad.pad.classList.add("active");
     setTimeout(() => {
-        item.pad.classList.remove("active");
+        drumPad.pad.classList.remove("active");
     }, 100);
 };
 
