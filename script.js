@@ -32,13 +32,13 @@ const playDrumPad = drumPad => {
 // Play drum pad if correct key is pressed
 document.addEventListener("keydown", event => {
     const charString = event.key.toLowerCase();
-    const keyPress = drumArr.find((item) => item.char === charString);
+    const keyPress = drumArr.find((drumPad) => drumPad.char === charString);
 
     if (keyPress) {
         playDrumPad(keyPress);
     }
 });
 
-drumArr.forEach((item) => {
-    item.pad.addEventListener("click", () => playDrumPad(item));
+drumArr.forEach((drumPad) => {
+    drumPad.pad.addEventListener("click", () => playDrumPad(drumPad));
 });
