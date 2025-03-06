@@ -30,8 +30,8 @@ body {
 #drum-machine {
     display: flex;
     flex-direction: column;
-    width: 800px;
-    height: 800px;
+    width: 90vh;
+    height: 90vh;
     padding: calc(1% + 1em);
     gap: calc(1% + 1em);
     background-color: var(--casing-bg);
@@ -39,15 +39,15 @@ body {
 }
 
 #display {
-    display: flex; /* Ensure it's a flex container */
-    justify-content: center; /* Horizontally align the text */
-    align-items: center; /* Vertically align the text */
     height: 20%;
     font-family: 'calcFont', sans-serif;
-    text-align: right;
-    font-size: 8rem;
+    font-size: 7rem;
+    padding: 0.2em;
     background-color: var(--display-bg);
     border-radius: var(--border-rad);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #pad-bank {

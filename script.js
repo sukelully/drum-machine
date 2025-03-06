@@ -14,7 +14,7 @@ const playDrumPad = item => {
     // Play the new sound
     audioChild.play();
     currentAudio = audioChild;
-    display.innerText = item.id;
+    display.textContent = item.id;
 };
 
 // Create array of .drum-pad objects and store play state
