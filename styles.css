@@ -7,9 +7,9 @@
 }
 
 :root {
-    --casing-bg: #D5D1BE;
-    --btn-red: #DC9265;
-    --display-bg: #9EAAA0;
+    --casing-bg: #d5d1be;
+    --btn-red: #dc9265;
+    --display-bg: #9eaaa0;
     --button-col: #575552;
     --button-tap: #282726;
     --border-rad: 10px;
@@ -66,9 +66,10 @@ body {
     height: 32%;
     width: 32%;
     background-color: var(--button-col);
-    font-family: "Arial", sans-serif;
+    font-family: "Lato", sans-serif;
+    font-style: italic;
     font-size: 5vh;
-    color: white;
+    color: #f4f1ed;
     border-radius: var(--border-rad);
 }
 
