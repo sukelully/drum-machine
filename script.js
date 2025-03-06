@@ -15,6 +15,15 @@ const playDrumPad = item => {
     audioChild.play();
     currentAudio = audioChild;
     display.textContent = item.id;
+
+
+    // Add active class to darken the pad
+    item.pad.classList.add("active");
+
+    // Remove the class after a short delay
+    setTimeout(() => {
+        item.pad.classList.remove("active");
+    }, 100);
 };
 
 // Create array of .drum-pad objects and store play state

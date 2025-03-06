@@ -11,6 +11,7 @@
     --btn-red: #DC9265;
     --display-bg: #9EAAA0;
     --button-col: #575552;
+    --button-tap: #282726;
     --border-rad: 10px;
 }
 
@@ -41,7 +42,7 @@ body {
 #display {
     height: 20%;
     font-family: 'calcFont', sans-serif;
-    font-size: 7rem;
+    font-size: 6rem;
     padding: 0.2em;
     background-color: var(--display-bg);
     border-radius: var(--border-rad);
@@ -65,6 +66,13 @@ body {
     height: 32%;
     width: 32%;
     background-color: var(--button-col);
-    color: var(--button-col);
+    font-family: "Arial", sans-serif;
+    font-size: 2rem;
+    color: white;
     border-radius: var(--border-rad);
+}
+
+.drum-pad.active {
+    background-color: var(--button-tap); /* Adjust the shade as needed */
+    transition: background-color 0.1s;
 }
